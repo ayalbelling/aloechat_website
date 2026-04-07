@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Aloe Chat</title>
+  <meta name="description" content="Aloe Chat Privacy Policy — what data we collect, how we use it, and your rights." />
+  <link rel="icon" type="image/png" href="aloe_plant_green.png" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:       #28b420;
+      --green-dark:  #1e8c18;
+      --green-light: #e8f8e7;
+      --ink:         #1a1a1a;
+      --ink-soft:    #4a4a4a;
+      --ink-muted:   #767676;
+      --border:      #e2e8df;
+      --white:       #ffffff;
+      --bg-subtle:   #f7fbf6;
+      --radius:      12px;
+      --max-w:       860px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: var(--green-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--green); text-decoration: none; }
+    .nav-links a.active { color: var(--green-dark); font-weight: 700; }
+
+    /* ── Page header ── */
+    .page-header {
+      background: linear-gradient(160deg, var(--bg-subtle) 0%, #fff 70%);
+      padding: 56px 24px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 20px;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--green-dark); text-decoration: none; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .page-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .policy-meta {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── TOC ── */
+    .toc-wrap {
+      max-width: var(--max-w);
+      margin: 40px auto 0;
+      padding: 0 24px;
+    }
+    .toc-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+    .toc-box h2 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+    .toc-list {
+      columns: 2;
+      column-gap: 32px;
+      list-style: none;
+      padding: 0;
+    }
+    .toc-list li { margin-bottom: 4px; break-inside: avoid; }
+    .toc-list a {
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+    }
+    .toc-list a:hover { color: var(--green-dark); }
+    @media (max-width: 540px) { .toc-list { columns: 1; } }
+
+    /* ── Policy body ── */
+    .policy-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .policy-body h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 48px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+      scroll-margin-top: 80px;
+    }
+    .policy-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .policy-body p {
+      margin-bottom: 14px;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .policy-body ul, .policy-body ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    .policy-body li {
+      margin-bottom: 6px;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .policy-body strong { color: var(--ink); }
+    .policy-note {
+      background: var(--green-light);
+      border-left: 4px solid var(--green);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: var(--green-dark);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.875rem;
+    }
+    .data-table th {
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      color: var(--ink-soft);
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: var(--bg-subtle); }
+    @media (max-width: 600px) {
+      .data-table { font-size: 0.8rem; }
+      .data-table th, .data-table td { padding: 8px 10px; }
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ink);
+      color: #aaa;
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.85rem;
+    }
+    footer strong { color: #fff; }
+    footer a { color: #aaa; }
+    footer a:hover { color: #fff; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .footer-logo img { width: 28px; height: 28px; filter: brightness(0) invert(1); opacity: 0.8; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="aloe_plant_green.png" alt="Aloe Chat logo" />
+      Aloe Chat
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="privacy.html" class="active">Privacy Policy</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Page Header ── -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <a href="index.html" class="back-link">← Back to Aloe Chat</a>
+    <span class="section-label">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="policy-meta">Effective date: 7 April 2026 &nbsp;·&nbsp; Last updated: 7 April 2026</p>
+  </div>
+</div>
+
+<!-- ── Table of Contents ── -->
+<div class="toc-wrap">
+  <div class="toc-box">
+    <h2>Contents</h2>
+    <ol class="toc-list">
+      <li><a href="#s1">1. Who We Are</a></li>
+      <li><a href="#s2">2. Scope of This Policy</a></li>
+      <li><a href="#s3">3. Data We Collect</a></li>
+      <li><a href="#s4">4. Permissions We Request</a></li>
+      <li><a href="#s5">5. How We Use Your Data</a></li>
+      <li><a href="#s6">6. Legal Bases for Processing</a></li>
+      <li><a href="#s7">7. Third-Party Services</a></li>
+      <li><a href="#s8">8. Data Sharing</a></li>
+      <li><a href="#s9">9. Data Retention</a></li>
+      <li><a href="#s10">10. Security</a></li>
+      <li><a href="#s11">11. International Transfers</a></li>
+      <li><a href="#s12">12. Your Rights</a></li>
+      <li><a href="#s13">13. Children's Privacy</a></li>
+      <li><a href="#s14">14. Changes to This Policy</a></li>
+      <li><a href="#s15">15. Contact Us</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ── Policy Body ── -->
+<div class="policy-wrap">
+  <div class="policy-body">
+
+    <div class="policy-note">
+      Aloe Chat is currently undergoing internal testing. This privacy policy describes the data practices
+      of the Aloe Chat application and service as currently built, and will be updated as the product evolves.
+    </div>
+
+    <h2 id="s1">1. Who We Are</h2>
+    <p>
+      Aloe Chat ("<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>") operates the Aloe Chat
+      mobile application and related backend services (collectively, the "<strong>Service</strong>").
+      Aloe Chat is a European-based product. As the operator of the Service, Aloe Chat acts as the
+      <strong>data controller</strong> for personal data processed through it.
+    </p>
+    <p>
+      For any privacy-related questions, requests, or concerns, please contact us at:
+      <a href="mailto:privacy@aloechat.com">privacy@aloechat.com</a>
+    </p>
+
+    <h2 id="s2">2. Scope of This Policy</h2>
+    <p>
+      This policy applies to personal data collected and processed when you download, install, register for,
+      or use the Aloe Chat application on Android or iOS devices. It explains what data we collect, why we
+      collect it, how we use and store it, and what rights you have over it.
+    </p>
+
+    <h2 id="s3">3. Data We Collect</h2>
+    <p>
+      We collect only the data necessary to provide and improve the Service. Below is a detailed account
+      of the categories of personal data we process.
+    </p>
+
+    <h3>3.1 Account &amp; Profile Data</h3>
+    <p>When you create an Aloe Chat account, we collect and store:</p>
+    <ul>
+      <li>Your <strong>phone number</strong>, used for account creation, identity verification, and contact discovery</li>
+      <li>A randomly generated <strong>user UUID</strong> that identifies your account internally</li>
+      <li><strong>Display name</strong> and <strong>username</strong> that you choose</li>
+      <li>An optional <strong>"about" text</strong> that you set on your profile</li>
+      <li>Your <strong>profile photo</strong>, if you choose to upload one, stored alongside a version counter</li>
+      <li>Your <strong>discoverability setting</strong>, which controls whether other users can find you via contact discovery</li>
+      <li>Your <strong>account public key</strong>, used for end-to-end encrypted messaging</li>
+    </ul>
+    <p>
+      Some of these fields are stored in encrypted form in our database.
+    </p>
+
+    <h3>3.2 Device &amp; Authentication Data</h3>
+    <p>To support secure multi-device access and message delivery, we store:</p>
+    <ul>
+      <li>A <strong>device UUID</strong> for each device you register</li>
+      <li><strong>Device type</strong> (iOS or Android)</li>
+      <li><strong>Identity keys, signed prekeys, and one-time prekeys</strong> used for the Signal-style key exchange that underpins end-to-end encryption</li>
+      <li>An <strong>authentication token</strong> to keep your session active</li>
+      <li><strong>Last connection timestamp</strong> for your device</li>
+      <li><strong>Push notification token</strong> (see Section 3.6) associated with each device</li>
+    </ul>
+
+    <h3>3.3 Contact Discovery Data</h3>
+    <p>
+      Aloe Chat can show you which people in your address book are already on the platform.
+      To do this <em>without</em> uploading your full contact list to our servers, we use a
+      privacy-preserving approach: your app transforms phone numbers into one-way derived tags
+      (using HMAC-style hashing) before sending them. Our server matches these tags against
+      a similarly derived set from registered users. Raw contact phone numbers from your device
+      are not stored on our servers.
+    </p>
+    <p>
+      Discovered Aloe contacts may be cached locally on your device for performance. You can
+      revoke the Contacts permission in your device settings at any time to stop this feature.
+    </p>
+
+    <h3>3.4 Messages, Posts &amp; Content</h3>
+    <p>
+      Aloe Chat uses end-to-end encryption for direct messages. This means:
+    </p>
+    <ul>
+      <li>Message content is encrypted on your device before transmission. We hold only an <strong>encrypted payload</strong> — we cannot read the content of your messages.</li>
+      <li>Pending message envelopes are stored on our servers only until they are delivered to the recipient's device, after which they are deleted.</li>
+      <li>Posts, comments, and reactions created in the social feed are stored on our servers. The visibility and encryption of social content depends on the audience settings you choose.</li>
+      <li>Group metadata (group identifiers, membership, settings) is stored to manage group messaging.</li>
+    </ul>
+
+    <h3>3.5 Voice &amp; Video Call Data</h3>
+    <p>
+      For voice and video calls, Aloe Chat uses WebRTC, which attempts a direct peer-to-peer connection
+      between participants. When a direct connection is not possible, we use TURN relay servers. For this
+      purpose, we generate and store <strong>temporary TURN credentials</strong> that expire after each
+      session. We do not record or store the content of your calls.
+    </p>
+
+    <h3>3.6 Push Notification Tokens</h3>
+    <p>
+      To deliver notifications about incoming messages, calls, and other events, we store
+      <strong>push notification tokens</strong> issued to your device by Apple (APNs) or Google (FCM).
+      These tokens are associated with your device record and are used solely for notification delivery.
+    </p>
+
+    <h3>3.7 Pages &amp; Social Features</h3>
+    <p>
+      If you create a Page on Aloe Chat, we store the page's name, description, website URL, handle,
+      page image, and associated roles (e.g., admin status) and engagement data (e.g., reactions).
+    </p>
+
+    <h3>3.8 Diagnostics &amp; Analytics</h3>
+    <p>
+      To maintain service quality and fix bugs, we collect limited diagnostic and analytics data.
+      This is more detailed than many apps, so we describe it clearly:
+    </p>
+    <ul>
+      <li>
+        <strong>Error reports:</strong> When the app encounters an error, we may log the error type,
+        message, stack trace, platform (iOS/Android), device model, OS version, app version, a device/client
+        identifier, and additional structured context about the error.
+      </li>
+      <li>
+        <strong>Analytics events:</strong> We record named events (e.g., screens visited, features used)
+        along with a session ID, device platform, device model, app version, timestamps, and a JSON properties
+        object describing the event.
+      </li>
+      <li>
+        <strong>Device-session tracking:</strong> We maintain a record per device that includes app version,
+        device model, session counts, last-seen timestamp, activity data, and optional internal tags used during
+        testing.
+      </li>
+    </ul>
+    <p>
+      This data is used exclusively to improve the reliability and quality of the Service. It is not
+      used to build advertising profiles and is not shared with third-party analytics companies.
+    </p>
+
+    <h3>3.9 Data Stored on Your Device</h3>
+    <p>
+      Aloe Chat stores data locally on your device to provide a fast, offline-capable experience:
+    </p>
+    <ul>
+      <li><strong>Message history and chats</strong>, stored in an encrypted local database (Isar)</li>
+      <li><strong>Encryption keys and session state</strong>, stored in your device's secure storage</li>
+      <li><strong>Application settings and preferences</strong></li>
+      <li><strong>A local cache of discovered Aloe contacts</strong></li>
+    </ul>
+    <p>
+      This local data remains on your device and under your control. Uninstalling the app will remove it.
+    </p>
+
+    <h2 id="s4">4. Permissions We Request</h2>
+    <p>
+      The following device permissions may be requested by Aloe Chat. You can grant or revoke most of these
+      in your device settings at any time.
+    </p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Permission</th>
+          <th>Why We Need It</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Contacts</strong></td>
+          <td>To perform contact discovery and show you which people you know are on Aloe Chat. Phone numbers are processed using privacy-preserving hashing as described in Section 3.3.</td>
+        </tr>
+        <tr>
+          <td><strong>Phone number / Phone state</strong></td>
+          <td>To verify your identity during account registration and link your account to your phone number.</td>
+        </tr>
+        <tr>
+          <td><strong>Camera</strong></td>
+          <td>To allow you to take photos or videos for your profile picture, to capture and share media in messages, and for any in-app camera flows.</td>
+        </tr>
+        <tr>
+          <td><strong>Microphone / Audio</strong></td>
+          <td>To record and send voice messages, and to participate in voice and video calls.</td>
+        </tr>
+        <tr>
+          <td><strong>Photos / Media / Storage</strong></td>
+          <td>To allow you to select images, videos, and files from your device for use as a profile photo or as message attachments.</td>
+        </tr>
+        <tr>
+          <td><strong>Notifications</strong></td>
+          <td>To deliver push notifications for incoming messages, calls, and other relevant alerts.</td>
+        </tr>
+        <tr>
+          <td><strong>Background activity / VoIP</strong></td>
+          <td>To keep the app able to receive incoming calls and deliver messages even when the app is not in the foreground.</td>
+        </tr>
+        <tr>
+          <td><strong>Internet / Network state</strong></td>
+          <td>To connect to Aloe Chat's servers for messaging, calling, content syncing, and WebSocket connectivity.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="s5">5. How We Use Your Data</h2>
+    <p>We process personal data for the following purposes:</p>
+    <ul>
+      <li><strong>Account creation and authentication</strong> — to register you, verify your identity, and maintain secure access</li>
+      <li><strong>Contact discovery</strong> — to help you find friends and contacts already using Aloe Chat</li>
+      <li><strong>Message delivery</strong> — to route and deliver encrypted messages and media to their intended recipients</li>
+      <li><strong>Voice and video calling</strong> — to establish and maintain calls between users</li>
+      <li><strong>Push notifications</strong> — to alert you to new messages, calls, and events</li>
+      <li><strong>Social features</strong> — to display posts, comments, reactions, and Pages</li>
+      <li><strong>Service security and abuse prevention</strong> — to detect misuse and protect users and infrastructure</li>
+      <li><strong>Diagnostics and error resolution</strong> — to identify and fix bugs and service issues</li>
+      <li><strong>Analytics and improvement</strong> — to understand how features are used and improve the product</li>
+    </ul>
+
+    <h2 id="s6">6. Legal Bases for Processing (GDPR)</h2>
+    <p>
+      For users in the European Economic Area (EEA) and the United Kingdom, we rely on the following
+      legal bases under the General Data Protection Regulation (GDPR):
+    </p>
+    <ul>
+      <li><strong>Performance of a contract (Art. 6(1)(b)):</strong> Processing necessary to provide the Service you have registered for, including account management, message delivery, calling, and contact discovery.</li>
+      <li><strong>Legitimate interests (Art. 6(1)(f)):</strong> Processing for security, fraud prevention, diagnostics, and internal analytics, where these interests are not overridden by your fundamental rights and freedoms.</li>
+      <li><strong>Consent (Art. 6(1)(a)):</strong> For optional permissions such as access to your contacts, camera, microphone, or notification delivery, where you have granted permission via your device settings or an in-app prompt.</li>
+      <li><strong>Legal obligation (Art. 6(1)(c)):</strong> Where we are required to process data to comply with applicable law.</li>
+    </ul>
+
+    <h2 id="s7">7. Third-Party Services</h2>
+    <p>
+      Aloe Chat shares limited data with the following third-party service providers where technically necessary
+      to operate the Service:
+    </p>
+    <ul>
+      <li>
+        <strong>Apple Push Notification Service (APNs)</strong> — used to deliver push notifications to iOS devices.
+        Apple may receive your device push token and notification metadata. See Apple's privacy policy at
+        <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>.
+      </li>
+      <li>
+        <strong>Google Firebase Cloud Messaging (FCM)</strong> — used to deliver push notifications to Android devices.
+        Google may receive your device push token and notification metadata. See Google's privacy policy at
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
+      </li>
+      <li>
+        <strong>Hosting and infrastructure providers</strong> — Aloe Chat's backend services run on cloud infrastructure
+        providers. These providers process data on our behalf under data processing agreements and are not permitted
+        to use your data for their own purposes.
+      </li>
+    </ul>
+    <p>
+      We do not use third-party advertising networks, tracking SDKs, or data brokers, and we do not share
+      your personal data with any third party for marketing or advertising purposes.
+    </p>
+
+    <h2 id="s8">8. Data Sharing</h2>
+    <p>
+      <strong>We do not sell your personal data.</strong> We do not share your personal data with third parties
+      except in the following limited circumstances:
+    </p>
+    <ul>
+      <li>With infrastructure and service providers strictly necessary to operate the Service (as described in Section 7), under contractual data protection obligations</li>
+      <li>With other Aloe Chat users, to the extent you have chosen to share it (e.g., your display name, profile photo, and posts are visible to users you interact with)</li>
+      <li>Posts you explicitly mark as <strong>public</strong> may be used by Aloe Chat for marketing and promotional purposes (e.g., featured in app store listings or social media). All other content — private messages, non-public posts, and profile data — is never used for marketing.</li>
+      <li>When required by applicable law, court order, or governmental authority, to the extent we are legally obligated to do so</li>
+      <li>In connection with a merger, acquisition, or sale of assets, in which case users would be notified in advance</li>
+    </ul>
+
+    <h2 id="s9">9. Data Retention</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Category</th>
+          <th>Retention Period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Account and profile data</td>
+          <td>Retained for the life of your account. Deleted upon account deletion request.</td>
+        </tr>
+        <tr>
+          <td>Pending message envelopes</td>
+          <td>Deleted from our servers once delivered to the recipient's device, or after a limited undelivered retention window.</td>
+        </tr>
+        <tr>
+          <td>Social posts, comments, reactions</td>
+          <td>Retained until you delete them or request account deletion.</td>
+        </tr>
+        <tr>
+          <td>Device and key records</td>
+          <td>Retained while your account is active. Removed upon account deletion or device de-registration.</td>
+        </tr>
+        <tr>
+          <td>Push notification tokens</td>
+          <td>Retained while your device is registered. Removed upon device de-registration or account deletion.</td>
+        </tr>
+        <tr>
+          <td>TURN credentials</td>
+          <td>Temporary; expire automatically at the end of a call session.</td>
+        </tr>
+        <tr>
+          <td>Diagnostics and error logs</td>
+          <td>Retained for up to 12 months, after which they are automatically purged.</td>
+        </tr>
+        <tr>
+          <td>Analytics events</td>
+          <td>Retained for up to 12 months for product improvement purposes.</td>
+        </tr>
+        <tr>
+          <td>Device-session records</td>
+          <td>Retained while your account is active. Removed upon account deletion.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="s10">10. Security</h2>
+    <p>
+      We take the security of your data seriously and have implemented a range of technical and organisational
+      measures, including:
+    </p>
+    <ul>
+      <li><strong>End-to-end encryption</strong> for direct messages, so their content is inaccessible to us or any third party</li>
+      <li><strong>Encryption in transit</strong> for all data communicated between your device and our servers (TLS)</li>
+      <li><strong>Encryption at rest</strong> for certain sensitive database fields, including account keys and profile data</li>
+      <li><strong>Secure key storage</strong> for encryption keys on your device using platform-native secure storage</li>
+      <li><strong>Access controls</strong> restricting internal access to personal data on a need-to-know basis</li>
+    </ul>
+    <p>
+      No system is completely secure. We cannot guarantee absolute security against all threats. If you believe
+      your account has been compromised, please contact us immediately at
+      <a href="mailto:privacy@aloechat.com">privacy@aloechat.com</a>.
+    </p>
+
+    <h2 id="s11">11. International Data Transfers</h2>
+    <p>
+      Aloe Chat is European-based and aims to keep data processing within the EEA wherever possible. However,
+      certain third-party services (including Apple APNs and Google FCM) may involve data transfers to the
+      United States or other countries. Where such transfers occur, we ensure they are governed by appropriate
+      safeguards, such as the European Commission's Standard Contractual Clauses or equivalent mechanisms.
+    </p>
+
+    <h2 id="s12">12. Your Rights</h2>
+    <p>
+      Under GDPR and applicable privacy law, you have the following rights regarding your personal data:
+    </p>
+    <ul>
+      <li><strong>Right of access</strong> — to receive a copy of the personal data we hold about you</li>
+      <li><strong>Right to rectification</strong> — to correct inaccurate or incomplete data</li>
+      <li><strong>Right to erasure</strong> — to request deletion of your account and associated data</li>
+      <li><strong>Right to restriction</strong> — to ask us to limit how we process your data in certain circumstances</li>
+      <li><strong>Right to data portability</strong> — to receive your data in a structured, machine-readable format</li>
+      <li><strong>Right to object</strong> — to object to processing based on legitimate interests</li>
+      <li><strong>Right to withdraw consent</strong> — where processing is based on consent, to withdraw it at any time (e.g., by revoking device permissions)</li>
+    </ul>
+    <p>
+      You can also exercise in-app controls:
+    </p>
+    <ul>
+      <li>Edit your profile information (display name, username, about text, profile photo) at any time in the app</li>
+      <li>Control your discoverability to other users in your profile settings</li>
+      <li>Revoke device permissions (contacts, camera, microphone, notifications) via your device's system settings</li>
+    </ul>
+    <p>
+      To exercise any of the above rights, or to submit a data deletion request, please contact us at
+      <a href="mailto:privacy@aloechat.com">privacy@aloechat.com</a>. We will respond within 30 days.
+      You also have the right to lodge a complaint with your local data protection authority.
+    </p>
+
+    <h2 id="s13">13. Children's Privacy</h2>
+    <p>
+      Aloe Chat is not intended for use by children under the age of 16. We do not knowingly collect personal
+      data from anyone under 16. If you believe a child under 16 has provided us with personal data, please
+      contact us at <a href="mailto:privacy@aloechat.com">privacy@aloechat.com</a> and we will take steps
+      to delete that information.
+    </p>
+
+    <h2 id="s14">14. Changes to This Policy</h2>
+    <p>
+      We may update this privacy policy from time to time. When we make material changes, we will notify you
+      via the app (for example, through a notification or a prompt on next login) and update the effective date
+      at the top of this page. Continued use of the Service after a material change takes effect constitutes
+      your acceptance of the updated policy.
+    </p>
+    <p>
+      We encourage you to review this policy periodically. Previous versions will be made available upon request.
+    </p>
+
+    <h2 id="s15">15. Contact Us</h2>
+    <p>
+      If you have any questions, concerns, or requests relating to this privacy policy or your personal data,
+      please reach out to us:
+    </p>
+    <p>
+      📧 <a href="mailto:privacy@aloechat.com"><strong>privacy@aloechat.com</strong></a>
+    </p>
+    <p>
+      We are committed to working with you to resolve any concerns about your privacy.
+    </p>
+
+  </div><!-- end .policy-body -->
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-logo">
+    <img src="aloe_plant_green.png" alt="Aloe Chat" />
+    <strong>Aloe Chat</strong>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:privacy@aloechat.com">privacy@aloechat.com</a>
+  </div>
+  <p style="margin-bottom: 18px; font-size: 0.8rem;">
+    &copy; 2026 Aloe Chat. All rights reserved.
+  </p>
+  <p style="font-size: 0.78rem; opacity: 0.6;">
+    European-built &nbsp;·&nbsp; Privacy by design &nbsp;·&nbsp; Free forever
+  </p>
+</footer>
+
+</body>
+</html>
