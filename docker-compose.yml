@@ -1,0 +1,12 @@
+services:
+  website:
+    image: localhost/aloechat-website:latest
+    build:
+      context: .
+      dockerfile: website.dockerfile
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge

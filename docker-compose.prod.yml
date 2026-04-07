@@ -1,0 +1,49 @@
+services:
+  website:
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "80:8080"
+      - "443:8443"
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+        reservations:
+          cpus: '0.10'
+          memory: 64M
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--no-check-certificate", "--spider", "https://127.0.0.1:8443/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    secrets:
+      - source: certificate
+        target: /etc/nginx/tls/cert.pem
+      - source: private_key
+        target: /etc/nginx/tls/key.pem
+
+networks:
+  frontend:
+    driver: overlay
+  backend:
+    external: true
+    name: aloeserver_backend
+
+secrets:
+  certificate:
+    external: true
+  private_key:
+    external: true

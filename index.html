@@ -218,7 +218,7 @@
 
     .cta-row {
       display: flex;
-      gap: 12px;
+      gap: 36px;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -238,13 +238,13 @@
       background: transparent;
       color: var(--green-dark);
       font-weight: 600;
-      padding: 13px 28px;
-      border-radius: var(--radius);
-      border: 2px solid var(--green);
+      padding: 0;
+      border-radius: 0;
+      border: none;
       font-size: 0.95rem;
-      transition: background 0.2s;
+      transition: color 0.2s;
     }
-    .btn-secondary:hover { background: var(--green-light); text-decoration: none; }
+    .btn-secondary:hover { color: var(--green); text-decoration: underline; }
 
     /* ── Section shared ── */
     section { padding: 72px 24px; }
@@ -408,7 +408,6 @@
     Submissions will be emailed to you automatically.
   -->
   <div class="waitlist-wrap">
-    <p class="waitlist-label">Be the first to know when we launch</p>
     <form class="waitlist-form" id="waitlist-form"
           action="https://formspree.io/f/YOUR_FORM_ID"
           method="POST">

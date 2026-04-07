@@ -1,0 +1,119 @@
+I’m scanning the app and server configs for declared permissions, data stored, and backend features so the privacy policy checklist matches what Aloe actually does.
+
+Searched for regex `uses-permission|RECORD_AUDIO|CAMERA|READ_CONTACTS|POST_NOTIFICATIONS|READ_MEDIA|READ_EXTERNAL_STORAGE|WRITE_EXTERNAL_STORAGE|FOREGROUND_SERVICE|INTERNET|ACCESS_NETWORK_STATE|READ_PHONE_STATE|READ_PHONE_NUMBERS|BLUETOOTH|LOCATION` (`aloe_app` · `android/**`), 104 results
+
+Searched for regex `NSCameraUsageDescription|NSMicrophoneUsageDescription|NSContactsUsageDescription|NSUserTrackingUsageDescription|NSPhotoLibraryUsageDescription|NSPhotoLibraryAddUsageDescription|UIBackgroundModes|Firebase|Push|remote-notification` (`aloe_app` · `ios/**`), 200 results
+
+Search complete: Scan privacy surfaces
+
+Searched for files matching `**/AndroidManifest.xml`, 6 matches
+
+Searched for files matching `**/Info.plist`, 4 matches
+
+Searched for files matching `**/pubspec.yaml`, 5 matches
+
+Searched for files matching `**/package.json`, 1 match
+
+Searched for files matching `**/requirements.txt`, no matches
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/aloe_app/android/app/src/main/AndroidManifest.xml#1-1), lines 1 to 50
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/AloeServer/package.json)
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/aloe_app/ios/Runner/Info.plist)
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/aloe_app/pubspec.yaml#1-1), lines 1 to 100
+
+Searched for files matching `AloeServer` · `**/*.js`, 17 matches
+
+Searched for files matching `AloeServer` · `**/*.sql`, 2 matches
+
+Searched for regex `CREATE TABLE|INSERT INTO|UPDATE|SELECT`, 200 results
+
+I’ve identified the main privacy surfaces; now I’m reading the exact manifests and server schema/docs so the policy checklist is concrete rather than generic.
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/aloe_app/android/app/src/main/AndroidManifest.xml#1-1), lines 1 to 140
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/aloe_app/ios/Runner/Info.plist)
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/AloeServer/init-scripts/init.sql)
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/AloeServer/docs/TRACKING_API.md#1-1), lines 1 to 220
+
+I have the platform permissions; I’m pulling the actual server schema and contact-discovery behavior next so the privacy-policy list covers stored account, message-routing, and diagnostic data.
+
+Searched for regex `CREATE TABLE IF NOT EXISTS users|CREATE TABLE IF NOT EXISTS user_devices|CREATE TABLE IF NOT EXISTS posts|CREATE TABLE IF NOT EXISTS envelopes|CREATE TABLE IF NOT EXISTS prekeys|CREATE TABLE IF NOT EXISTS group_metadata|CREATE TABLE IF NOT EXISTS notifications|tracking\.errors|tracking\.analytics_events|tracking\.device_sessions` (`AloeServer`), 79 results
+
+Searched for regex `fcm_token|voip|pushCredentials|PKPush|device_uuid|phone_number|profile_photo|about|display_name|username|routing_id` (`AloeServer`), 120 results
+
+Searched for regex `Isar|flutter_secure_storage|WebSocket|webrtc|contact discovery|contacts|phone number|push token|voip token|profile photo|record` (`aloe_app` · `lib/**`), 120 results
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/AloeServer/services/contact_discovery_service.js)
+
+I’ve confirmed the major data flows; I’m reading the server table definitions now so the privacy-policy coverage includes the specific account, device, message, and diagnostics data Aloe stores.
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/AloeServer/services/db_init_service.js#1-1), lines 1 to 180
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/AloeServer/services/db_init_service.js#180-180), lines 180 to 340
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/AloeServer/init-scripts/SQL_ERROR_TRACKING_SCHEMA.sql#27-27), lines 27 to 330
+
+Compacted conversation
+
+Searched for regex `CREATE TABLE IF NOT EXISTS users|CREATE TABLE IF NOT EXISTS user_devices|CREATE TABLE IF NOT EXISTS posts|CREATE TABLE IF NOT EXISTS envelopes|CREATE TABLE IF NOT EXISTS prekeys|CREATE TABLE IF NOT EXISTS group_metadata|CREATE TABLE IF NOT EXISTS notifications|tracking\.errors|tracking\.analytics_events|tracking\.device_sessions` (`AloeServer`), 79 results
+
+Read [](file:///Users/ayalbelling/Desktop/Projects/Aloe%202nd%20Attempt/AloeServer/services/contact_discovery_service.js)
+
+Searched for regex `fcm_token|voip|pushCredentials|PKPush|device_uuid|phone_number|profile_photo|about|display_name|username|routing_id` (`AloeServer`), 120 results
+
+Searched for regex `Isar|flutter_secure_storage|WebSocket|webrtc|contact discovery|contacts|phone number|push token|voip token|profile photo|record` (`aloe_app` · `lib/**`), 120 results
+
+I’ve got the server tables and tracking schema. I’m checking the app’s local-storage and messaging dependencies once more, then I’ll turn this into a practical privacy-policy checklist rather than a generic template.
+
+Searched for regex `isar:|flutter_secure_storage:|firebase_messaging:|firebase_core:|flutter_contacts:|camera:|image_picker:|image_cropper:|record:|flutter_webrtc:|web_socket_channel:|shared_preferences:` (`aloe_app` · `pubspec.yaml`), 12 results
+
+Searched for regex `FlutterSecureStorage|Isar|SharedPreferences|getApplicationDocumentsDirectory|ContactStorage|MessageStorage|SecureStorage|LocalStore` (`aloe_app` · `lib/**`), 120 results
+
+Aloe’s privacy policy should cover three things clearly: what permissions the app asks for, what data Aloe stores or processes on its own backend, and what third parties are involved. This is grounded in the current app and server configuration in AndroidManifest.xml, Info.plist, pubspec.yaml, db_init_service.js, SQL_ERROR_TRACKING_SCHEMA.sql, and TRACKING_API.md.
+
+**Permissions**
+- Contacts: explain that Aloe reads address-book contacts to help users find people already on Aloe and may cache discovered Aloe contacts locally.
+- Phone number and phone state: explain that Aloe uses the user’s phone number for account setup, identity/account matching, and contact discovery.
+- Camera: explain that Aloe uses camera access for profile photos, captured media, and any in-app photo/video capture flows.
+- Microphone / audio: explain that Aloe uses microphone and audio permissions for voice messages and call features.
+- Photos / media / storage: explain that Aloe may read user-selected images, video, and files for profile photos, attachments, and media sharing.
+- Notifications: explain that Aloe uses push notifications for messages, calls, and other app alerts.
+- Background activity / VoIP / foreground services: explain that Aloe may stay active in the background for incoming calls, message delivery, and notification handling.
+- Network and device connectivity: explain that Aloe uses internet and network-state access to maintain messaging, calling, syncing, and websocket connections.
+- Optional note: distinguish “requested by platform/build” from “actively used in product” if some Android permissions are broader than the final user-facing flows.
+
+**Server Data Storage And Use**
+- Account/profile data: disclose that Aloe stores account identifiers and profile fields such as phone number, user UUID, display name, username, about text, profile photo, profile photo counter, discoverability setting, and profile public key. Some of these fields are stored encrypted in PostgreSQL, as shown in db_init_service.js.
+- Device and authentication data: disclose that Aloe stores device UUID, device type, identity/public keys, signed prekeys, auth token material, last connection information, and push token data, also visible in db_init_service.js.
+- Contact discovery data: disclose that Aloe processes phone-number-derived tags for contact discovery instead of only storing raw contact-book uploads; explain that hashed/HMAC-style phone tags are used to match discoverable users, with the logic in contact_discovery_service.js.
+- Messaging and delivery data: disclose that Aloe stores pending message envelopes, message-routing data, posts, comments, reactions, audience lists, and group metadata needed to deliver or sync content. Some content and routing fields are stored as encrypted payloads or encrypted blobs in the backend schema in db_init_service.js.
+- Calling data: disclose that Aloe generates and stores temporary TURN credentials for call connectivity fallback, as shown in db_init_service.js.
+- Pages/social features: disclose that Aloe stores page/profile data such as page name, description, website URL, handle, page image, and related roles and reactions.
+- Security keys: disclose that Aloe stores encryption key records and public-key-related materials needed for account/device cryptographic functions.
+- Push tokens: disclose that Aloe stores push-notification tokens so it can deliver notifications via Apple/Google infrastructure.
+
+**Diagnostics, Analytics, And Local Storage**
+- Error reporting: disclose that Aloe stores error reports including client/device ID, error type, message, stack trace, platform, device model, OS version, app version, and additional JSON context. This is defined in SQL_ERROR_TRACKING_SCHEMA.sql and described in TRACKING_API.md.
+- Analytics events: disclose that Aloe stores analytics events including event name/category, device/platform details, timestamps, session ID, screen name, and event properties JSON, per SQL_ERROR_TRACKING_SCHEMA.sql.
+- Device-session tracking: disclose that Aloe tracks device/session metadata such as app version, device model, session counts, last seen, activity, and optional tags for testing or device roles.
+- Local on-device storage: disclose that Aloe stores local app data on the device, including messages/chats and app settings, using Isar, shared preferences, and secure storage, reflected in pubspec.yaml and message_storage.dart.
+- Contact cache: disclose that discovered Aloe contacts may be cached locally for performance and UX.
+
+**Other Privacy Policy Sections You Should Include**
+- Purposes of processing: account creation, identity verification, contact discovery, messaging and delivery, voice/video calling, notifications, app security, abuse prevention, diagnostics, analytics, and feature improvement.
+- Legal/user controls: how users can edit profile info, disable discoverability if supported, revoke contacts/camera/mic/notification permissions, and request account/data deletion if you offer it.
+- Third parties: name Firebase Cloud Messaging and Apple Push Notification Service for notifications, and any hosting/cloud/database providers actually used in production.
+- Data sharing: state whether Aloe shares data with service providers only, and whether it sells data. If it does not sell data, say so directly.
+- Retention: explain how long Aloe keeps account data, queued/delivered message metadata, analytics, crash logs, and deleted-account remnants or backups.
+- Security: explain encryption in transit, encrypted fields at rest where applicable, access controls, and the limits of security.
+- International transfers: include this if server or provider infrastructure is outside the user’s home country.
+- Children’s privacy: state age restrictions if Aloe is not intended for children.
+- Policy changes: explain how users will be notified of material changes.
+- Contact information: provide a privacy contact email or form.
+
+The main gap to avoid is a generic statement like “we only store messages and profile info.” Aloe currently processes contacts, phone-number-derived discovery data, device identifiers, push tokens, call-related connectivity data, and fairly detailed diagnostics/analytics, so the policy should say that explicitly.
