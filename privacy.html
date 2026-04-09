@@ -366,11 +366,11 @@
     <h3>3.3 Contact Discovery Data</h3>
     <p>
       Aloe Chat can show you which people in your address book are already on the platform.
-      To do this <em>without</em> uploading your full contact list to our servers, we use a
-      privacy-preserving approach: your app transforms phone numbers into one-way derived tags
-      (using HMAC-style hashing) before sending them. Our server matches these tags against
-      a similarly derived set from registered users. Raw contact phone numbers from your device
-      are not stored on our servers.
+      To do this <em>without</em> uploading your any of your contacts to our servers, we use a
+      privacy-preserving approach: your app transforms your phone numbers into one-way derived tags
+      (using HMAC-style hashing) and sends just the first part of this tag to the server. Our server sends your device 
+      matches to this first part and the only your device checks if the one of the full tags from the server matches the full tag on your device.
+      Our server cannot see nor figure out who your contacts are if they are not on Aloe Chat.
     </p>
     <p>
       Discovered Aloe contacts may be cached locally on your device for performance. You can
