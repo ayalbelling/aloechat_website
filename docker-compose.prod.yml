@@ -35,6 +35,19 @@ services:
       - source: private_key
         target: /etc/nginx/tls/key.pem
 
+  backend:
+    image: localhost/aloechat-website-backend:latest
+    networks:
+      - frontend
+      - backend
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+
 networks:
   frontend:
     driver: overlay

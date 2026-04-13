@@ -17,3 +17,16 @@ services:
       - ./privacy.html:/usr/share/nginx/html/privacy.html
       - ./aloe_plant_green.png:/usr/share/nginx/html/aloe_plant_green.png
       - ./nginx.conf:/etc/nginx/nginx.conf
+
+  backend:
+    ports:
+      - "9230:9230"
+    command: node --inspect=0.0.0.0:9230 server.js
+    environment:
+      - POSTGRES_HOST=host.docker.internal
+      - POSTGRES_PORT=5435
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=mysecretpassword
+    volumes:
+      - ./backend:/app
+      - /app/node_modules

@@ -409,7 +409,7 @@
   -->
   <div class="waitlist-wrap">
     <form class="waitlist-form" id="waitlist-form"
-          action="https://formspree.io/f/YOUR_FORM_ID"
+          action="/api/waitlist"
           method="POST">
       <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
       <button type="submit" id="waitlist-btn">Join the waitlist</button>
@@ -515,17 +515,21 @@
     btn.textContent = 'Sending…';
     error.style.display = 'none';
 
+    const formData = new FormData(form);
+    const email = formData.get('email');
+
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch('/api/waitlist', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email })
       });
 
       if (res.ok) {
         form.style.display = 'none';
         success.style.display = 'flex';
-        document.querySelector('.waitlist-label').style.display = 'none';
+        const label = document.querySelector('.waitlist-label');
+        if (label) label.style.display = 'none';
       } else {
         throw new Error('Server error');
       }
