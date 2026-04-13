@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aloe Chat — Private Messaging, by Design</title>
-  <meta name="description" content="Aloe Chat is a free, European-based messaging and social media app built with security and privacy at its core." />
+  <meta name="description"
+    content="Aloe Chat is a free, European-based messaging and social media app built with security and privacy at its core." />
   <link rel="icon" type="image/png" href="aloe_plant_green.png" />
   <style>
     /* ── Reset & Base ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --green:       #28b420;
-      --green-dark:  #1e8c18;
-      --green-light: #e8f8e7;
-      --ink:         #1a1a1a;
-      --ink-soft:    #4a4a4a;
-      --ink-muted:   #767676;
-      --border:      #e2e8df;
-      --white:       #ffffff;
-      --bg-subtle:   #f7fbf6;
-      --radius:      12px;
-      --max-w:       860px;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    html { scroll-behavior: smooth; }
+
+    :root {
+      --green: #28b420;
+      --green-dark: #1e8c18;
+      --green-light: #e8f8e7;
+      --ink: #1a1a1a;
+      --ink-soft: #4a4a4a;
+      --ink-muted: #767676;
+      --border: #e2e8df;
+      --white: #ffffff;
+      --bg-subtle: #f7fbf6;
+      --radius: 12px;
+      --max-w: 860px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       color: var(--ink);
@@ -30,17 +43,27 @@
       line-height: 1.7;
       font-size: 16px;
     }
-    a { color: var(--green-dark); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    a {
+      color: var(--green-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     /* ── Nav ── */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.92);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 24px;
     }
+
     .nav-inner {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -49,6 +72,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .nav-logo {
       display: flex;
       align-items: center;
@@ -58,18 +82,28 @@
       color: var(--ink);
       text-decoration: none;
     }
-    .nav-logo img { width: 28px; height: 28px; }
+
+    .nav-logo img {
+      width: 28px;
+      height: 28px;
+    }
+
     .nav-links {
       display: flex;
       gap: 24px;
       list-style: none;
     }
+
     .nav-links a {
       color: var(--ink-soft);
       font-size: 0.9rem;
       font-weight: 500;
     }
-    .nav-links a:hover { color: var(--green); text-decoration: none; }
+
+    .nav-links a:hover {
+      color: var(--green);
+      text-decoration: none;
+    }
 
     /* ── Hero ── */
     .hero {
@@ -77,6 +111,7 @@
       padding: 80px 24px 72px;
       text-align: center;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -92,21 +127,36 @@
       text-transform: uppercase;
       margin-bottom: 28px;
     }
+
     .hero-badge .dot {
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       background: var(--green);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
+
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.3);
+      }
     }
+
     .hero-logo {
-      width: 90px; height: 90px;
+      width: 90px;
+      height: 90px;
       margin: 0 auto 20px;
       display: block;
     }
+
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 800;
@@ -114,7 +164,11 @@
       line-height: 1.15;
       margin-bottom: 16px;
     }
-    .hero h1 span { color: var(--green); }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
     .hero p.tagline {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: var(--ink-soft);
@@ -126,6 +180,7 @@
     .waitlist-wrap {
       margin-bottom: 40px;
     }
+
     .waitlist-label {
       font-size: 0.85rem;
       font-weight: 600;
@@ -133,6 +188,7 @@
       margin-bottom: 10px;
       letter-spacing: 0.01em;
     }
+
     .waitlist-form {
       display: flex;
       gap: 8px;
@@ -141,6 +197,7 @@
       max-width: 460px;
       margin: 0 auto;
     }
+
     .waitlist-form input[type="email"] {
       flex: 1;
       min-width: 200px;
@@ -154,12 +211,15 @@
       outline: none;
       transition: border-color 0.2s;
     }
+
     .waitlist-form input[type="email"]:focus {
       border-color: var(--green);
     }
+
     .waitlist-form input[type="email"]::placeholder {
       color: var(--ink-muted);
     }
+
     .waitlist-form button {
       padding: 13px 22px;
       background: var(--green);
@@ -173,11 +233,16 @@
       transition: background 0.2s;
       white-space: nowrap;
     }
-    .waitlist-form button:hover { background: var(--green-dark); }
+
+    .waitlist-form button:hover {
+      background: var(--green-dark);
+    }
+
     .waitlist-form button:disabled {
       background: var(--ink-muted);
       cursor: not-allowed;
     }
+
     .waitlist-success {
       display: none;
       align-items: center;
@@ -193,6 +258,7 @@
       max-width: 460px;
       margin: 0 auto;
     }
+
     .waitlist-error {
       display: none;
       color: #c0392b;
@@ -209,7 +275,9 @@
       color: var(--ink-muted);
       font-size: 0.8rem;
     }
-    .divider-row::before, .divider-row::after {
+
+    .divider-row::before,
+    .divider-row::after {
       content: '';
       flex: 1;
       height: 1px;
@@ -222,6 +290,7 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+
     .btn-primary {
       display: inline-block;
       background: var(--green);
@@ -232,7 +301,12 @@
       font-size: 0.95rem;
       transition: background 0.2s;
     }
-    .btn-primary:hover { background: var(--green-dark); text-decoration: none; }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      text-decoration: none;
+    }
+
     .btn-secondary {
       display: inline-block;
       background: transparent;
@@ -244,11 +318,22 @@
       font-size: 0.95rem;
       transition: color 0.2s;
     }
-    .btn-secondary:hover { color: var(--green); text-decoration: underline; }
+
+    .btn-secondary:hover {
+      color: var(--green);
+      text-decoration: underline;
+    }
 
     /* ── Section shared ── */
-    section { padding: 72px 24px; }
-    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    section {
+      padding: 72px 24px;
+    }
+
+    .section-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
     .section-label {
       display: inline-block;
       font-size: 0.75rem;
@@ -258,12 +343,14 @@
       color: var(--green-dark);
       margin-bottom: 10px;
     }
+
     .section-title {
       font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
     }
+
     .section-sub {
       color: var(--ink-soft);
       max-width: 560px;
@@ -271,27 +358,34 @@
     }
 
     /* ── Feature grid ── */
-    .features-bg { background: var(--bg-subtle); }
+    .features-bg {
+      background: var(--bg-subtle);
+    }
+
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
     }
+
     .feature-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 28px 24px;
     }
+
     .feature-icon {
       font-size: 1.8rem;
       margin-bottom: 14px;
     }
+
     .feature-card h3 {
       font-size: 1rem;
       font-weight: 700;
       margin-bottom: 6px;
     }
+
     .feature-card p {
       font-size: 0.875rem;
       color: var(--ink-soft);
@@ -303,6 +397,7 @@
       border-top: 1px solid var(--border);
       background: var(--white);
     }
+
     .privacy-strip-inner {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -313,15 +408,18 @@
       gap: 24px;
       flex-wrap: wrap;
     }
+
     .privacy-strip-text h3 {
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 4px;
     }
+
     .privacy-strip-text p {
       font-size: 0.9rem;
       color: var(--ink-soft);
     }
+
     .btn-ghost {
       display: inline-block;
       color: var(--green-dark);
@@ -333,7 +431,12 @@
       white-space: nowrap;
       transition: border-color 0.2s, background 0.2s;
     }
-    .btn-ghost:hover { border-color: var(--green); background: var(--green-light); text-decoration: none; }
+
+    .btn-ghost:hover {
+      border-color: var(--green);
+      background: var(--green-light);
+      text-decoration: none;
+    }
 
     /* ── Footer ── */
     footer {
@@ -343,9 +446,19 @@
       padding: 40px 24px;
       font-size: 0.85rem;
     }
-    footer strong { color: #fff; }
-    footer a { color: #aaa; }
-    footer a:hover { color: #fff; }
+
+    footer strong {
+      color: #fff;
+    }
+
+    footer a {
+      color: #aaa;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
     .footer-logo {
       display: flex;
       align-items: center;
@@ -353,7 +466,14 @@
       gap: 10px;
       margin-bottom: 12px;
     }
-    .footer-logo img { width: 28px; height: 28px; filter: brightness(0) invert(1); opacity: 0.8; }
+
+    .footer-logo img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+
     .footer-links {
       display: flex;
       justify-content: center;
@@ -364,182 +484,201 @@
 
     /* ── Responsive ── */
     @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero { padding: 60px 20px 56px; }
-      section { padding: 56px 20px; }
-      .privacy-strip-inner { flex-direction: column; align-items: flex-start; }
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 20px 56px;
+      }
+
+      section {
+        padding: 56px 20px;
+      }
+
+      .privacy-strip-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ── Navigation ── -->
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="aloe_plant_green.png" alt="Aloe Chat logo" />
-      Aloe Chat
-    </a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="aloe_plant_green.png" alt="Aloe Chat logo" />
+        Aloe Chat
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<!-- ── Hero ── -->
-<header class="hero">
-  <div class="hero-badge">
-    <span class="dot"></span>
-    Internal Testing Underway
-  </div>
-  <img src="aloe_plant_green.png" alt="Aloe Chat" class="hero-logo" />
-  <h1>Messaging & social<br /><span>that respect you</span></h1>
-  <p class="tagline">
-    Aloe Chat is a free, European-based messaging and social media app
-    built from the ground up with security and privacy by design.
-  </p>
+  <!-- ── Hero ── -->
+  <header class="hero">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Internal Testing Underway
+    </div>
+    <img src="aloe_plant_green.png" alt="Aloe Chat" class="hero-logo" />
+    <h1>Messaging & social<br /><span>that respects you</span></h1>
+    <p class="tagline">
+      Aloe Chat is a free, European-based messaging and social media app
+      built from the ground up with security and privacy by design.
+    </p>
 
-  <!-- Waitlist form -->
-  <!--
+    <!-- Waitlist form -->
+    <!--
     TO ACTIVATE: Sign up at https://formspree.io, create a new form,
     then replace YOUR_FORM_ID below with your actual form ID.
     Submissions will be emailed to you automatically.
   -->
-  <div class="waitlist-wrap">
-    <form class="waitlist-form" id="waitlist-form"
-          action="/api/waitlist"
-          method="POST">
-      <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-      <button type="submit" id="waitlist-btn">Join the waitlist</button>
-    </form>
-    <div class="waitlist-success" id="waitlist-success">
-      ✅ You're on the list — we'll be in touch!
+    <div class="waitlist-wrap">
+      <form class="waitlist-form" id="waitlist-form" action="/api/waitlist" method="POST">
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+        <button type="submit" id="waitlist-btn">Join the waitlist</button>
+      </form>
+      <div class="waitlist-success" id="waitlist-success">
+        ✅ You're on the list — we'll be in touch!
+      </div>
+      <p class="waitlist-error" id="waitlist-error">
+        Something went wrong. Please try again or email us at <a
+          href="mailto:hello@aloechat.com">hello@aloechat.com</a>.
+      </p>
     </div>
-    <p class="waitlist-error" id="waitlist-error">
-      Something went wrong. Please try again or email us at <a href="mailto:hello@aloechat.com">hello@aloechat.com</a>.
+
+    <div class="cta-row">
+      <a href="#about" class="btn-secondary">Learn More</a>
+      <a href="privacy.html" class="btn-secondary">Privacy Policy</a>
+    </div>
+  </header>
+
+  <!-- ── About / Features ── -->
+  <section class="features-bg" id="about">
+    <div class="section-inner">
+      <span class="section-label">Why Aloe Chat</span>
+      <h2 class="section-title">Privacy isn't a feature. It's the foundation.</h2>
+      <p class="section-sub">
+        We built Aloe Chat because we believe you shouldn't have to trade your personal data
+        for a good messaging experience.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>End-to-End Encryption</h3>
+          <p>Your messages are encrypted on your device before they leave it. We cannot read your conversations — and
+            neither can anyone else.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🇪🇺</div>
+          <h3>Based in Europe</h3>
+          <p>Aloe Chat is European-built and operated under EU law, including GDPR. Your data stays protected by the
+            strongest privacy framework in the world.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚫</div>
+          <h3>No Ads. No Data Selling.</h3>
+          <p>We will never sell your personal data. Posts you explicitly mark as <strong>public</strong> may be used for
+            marketing purposes — everything else stays private. Aloe Chat is free and intends to stay that way.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Messaging &amp; Social</h3>
+          <p>Direct messages, group chats, voice and video calls, and a social feed — all in one app, all with privacy
+            at their core.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔑</div>
+          <h3>Cryptographic Identity</h3>
+          <p>Your account is anchored to public-key cryptography. Aloe uses modern key-exchange protocols to verify
+            identities without a central trust authority.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✂️</div>
+          <h3>Minimal Data Collection</h3>
+          <p>We collect only what's genuinely needed to run the service. We're fully transparent about what that is — <a
+              href="privacy.html">read our privacy policy</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Privacy strip ── -->
+  <div class="privacy-strip">
+    <div class="privacy-strip-inner">
+      <div class="privacy-strip-text">
+        <h3>Our commitment to your privacy</h3>
+        <p>We believe in full transparency. Read exactly what data Aloe Chat collects and how it's used.</p>
+      </div>
+      <a href="privacy.html" class="btn-ghost">Read the Privacy Policy →</a>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer id="contact">
+    <div class="footer-logo">
+      <img src="aloe_plant_green.png" alt="Aloe Chat" />
+      <strong>Aloe Chat</strong>
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:privacy@aloechat.com">privacy@aloechat.com</a>
+    </div>
+    <p style="margin-bottom: 18px; font-size: 0.8rem;">
+      &copy; 2026 Aloe Chat. All rights reserved.
     </p>
-  </div>
-
-  <div class="cta-row">
-    <a href="#about" class="btn-secondary">Learn More</a>
-    <a href="privacy.html" class="btn-secondary">Privacy Policy</a>
-  </div>
-</header>
-
-<!-- ── About / Features ── -->
-<section class="features-bg" id="about">
-  <div class="section-inner">
-    <span class="section-label">Why Aloe Chat</span>
-    <h2 class="section-title">Privacy isn't a feature. It's the foundation.</h2>
-    <p class="section-sub">
-      We built Aloe Chat because we believe you shouldn't have to trade your personal data
-      for a good messaging experience.
+    <p style="font-size: 0.78rem; opacity: 0.6;">
+      European-built &nbsp;·&nbsp; Privacy by design &nbsp;·&nbsp; Free forever
     </p>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🔐</div>
-        <h3>End-to-End Encryption</h3>
-        <p>Your messages are encrypted on your device before they leave it. We cannot read your conversations — and neither can anyone else.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🇪🇺</div>
-        <h3>Based in Europe</h3>
-        <p>Aloe Chat is European-built and operated under EU law, including GDPR. Your data stays protected by the strongest privacy framework in the world.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🚫</div>
-        <h3>No Ads. No Data Selling.</h3>
-        <p>We will never sell your personal data. Posts you explicitly mark as <strong>public</strong> may be used for marketing purposes — everything else stays private. Aloe Chat is free and intends to stay that way.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📱</div>
-        <h3>Messaging &amp; Social</h3>
-        <p>Direct messages, group chats, voice and video calls, and a social feed — all in one app, all with privacy at their core.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔑</div>
-        <h3>Cryptographic Identity</h3>
-        <p>Your account is anchored to public-key cryptography. Aloe uses modern key-exchange protocols to verify identities without a central trust authority.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✂️</div>
-        <h3>Minimal Data Collection</h3>
-        <p>We collect only what's genuinely needed to run the service. We're fully transparent about what that is — <a href="privacy.html">read our privacy policy</a>.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ── Privacy strip ── -->
-<div class="privacy-strip">
-  <div class="privacy-strip-inner">
-    <div class="privacy-strip-text">
-      <h3>Our commitment to your privacy</h3>
-      <p>We believe in full transparency. Read exactly what data Aloe Chat collects and how it's used.</p>
-    </div>
-    <a href="privacy.html" class="btn-ghost">Read the Privacy Policy →</a>
-  </div>
-</div>
+  <script>
+    // Waitlist form — AJAX submission to Formspree
+    // Replace YOUR_FORM_ID in the form action above to activate.
+    const form = document.getElementById('waitlist-form');
+    const btn = document.getElementById('waitlist-btn');
+    const success = document.getElementById('waitlist-success');
+    const error = document.getElementById('waitlist-error');
 
-<!-- ── Footer ── -->
-<footer id="contact">
-  <div class="footer-logo">
-    <img src="aloe_plant_green.png" alt="Aloe Chat" />
-    <strong>Aloe Chat</strong>
-  </div>
-  <div class="footer-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="mailto:privacy@aloechat.com">privacy@aloechat.com</a>
-  </div>
-  <p style="margin-bottom: 18px; font-size: 0.8rem;">
-    &copy; 2026 Aloe Chat. All rights reserved.
-  </p>
-  <p style="font-size: 0.78rem; opacity: 0.6;">
-    European-built &nbsp;·&nbsp; Privacy by design &nbsp;·&nbsp; Free forever
-  </p>
-</footer>
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      error.style.display = 'none';
 
-<script>
-  // Waitlist form — AJAX submission to Formspree
-  // Replace YOUR_FORM_ID in the form action above to activate.
-  const form   = document.getElementById('waitlist-form');
-  const btn    = document.getElementById('waitlist-btn');
-  const success = document.getElementById('waitlist-success');
-  const error  = document.getElementById('waitlist-error');
+      const formData = new FormData(form);
+      const email = formData.get('email');
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    error.style.display = 'none';
+      try {
+        const res = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email })
+        });
 
-    const formData = new FormData(form);
-    const email = formData.get('email');
-
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-
-      if (res.ok) {
-        form.style.display = 'none';
-        success.style.display = 'flex';
-        const label = document.querySelector('.waitlist-label');
-        if (label) label.style.display = 'none';
-      } else {
-        throw new Error('Server error');
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'flex';
+          const label = document.querySelector('.waitlist-label');
+          if (label) label.style.display = 'none';
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Join the waitlist';
+        error.style.display = 'block';
       }
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'Join the waitlist';
-      error.style.display = 'block';
-    }
-  });
-</script>
+    });
+  </script>
 
 </body>
+
 </html>
